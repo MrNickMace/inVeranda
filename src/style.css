@@ -1,0 +1,28 @@
+:root {
+  --primary-color: #CCD5AE;
+  --primary-color-light: #E9EDC9;
+  --secondary-color: #FAEDCD;
+  --secondary-color-light: #FEFAE0;
+  --tertiary-color: #D4A373;
+  --white-color: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--secondary-color-light);
+}
+
+#header {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+#Logo {
+  font-weight: 1000;
+  font-size: 2rem;
+  font-family: 'Times New Roman', Times, serif;
+}
