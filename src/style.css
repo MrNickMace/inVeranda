@@ -5,6 +5,9 @@
   --secondary-color-light: #FEFAE0;
   --tertiary-color: #D4A373;
   --white-color: #ffffff;
+  --menu-button-size: 1.8rem;
+  --menu-button-weight: 0.2rem;
+  --menu-button-transition-speed: 0.3s;
 }
 
 body {
@@ -13,16 +16,85 @@ body {
   background-color: var(--secondary-color-light);
 }
 
-#header {
+header {
   background-color: var(--primary-color);
   color: var(--white-color);
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 1rem;
 }
 
-#Logo {
+#header-logo {
   font-weight: 1000;
   font-size: 2rem;
   font-family: 'Times New Roman', Times, serif;
+}
+
+#header-menu-button {
+  background-color: transparent;
+  border: calc(var(--menu-button-weight)*0.8) solid var(--white-color);
+  border-radius: 5px;
+}
+
+#header-menu-button>#img {
+  pointer-events: none;
+  position: relative;
+  padding: 0;
+  margin: calc(var(--menu-button-size)/1.8) 0;
+  background-color: var(--white-color);
+  height: var(--menu-button-weight);
+  width: var(--menu-button-size);
+  border-radius: var(--menu-button-weight);
+  transition-duration: var(--menu-button-transition-speed);
+}
+
+#header-menu-button[data-state="active"]>#img {
+  background-color: transparent;
+}
+
+#header-menu-button>#img::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(var(--menu-button-size)/-2.4);
+  height: var(--menu-button-weight);
+  width: var(--menu-button-size);
+  background-color: var(--white-color);
+  border-radius: var(--menu-button-weight);
+  transition-duration: var(--menu-button-transition-speed);
+}
+
+#header-menu-button[data-state="active"]>#img::before {
+  transform-origin: calc(var(--menu-button-size)/12);
+  transform: rotateZ(45deg);
+  width: calc(var(--menu-button-size)*1.345);
+}
+
+#header-menu-button>#img::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: calc(var(--menu-button-size)/-2.4);
+  height: var(--menu-button-weight);
+  width: var(--menu-button-size);
+  background-color: var(--white-color);
+  border-radius: var(--menu-button-weight);
+  transition-duration: var(--menu-button-transition-speed);
+}
+
+#header-menu-button[data-state="active"]>#img::after {
+  transform-origin: calc(var(--menu-button-size)/12);
+  transform: rotateZ(-45deg);
+  width: calc(var(--menu-button-size)*1.345);
+}
+
+#presentation {
+  display: flex;
+  justify-content: center;
+}
+
+#frame {
+  width: 100%;
+  max-width: 768px;
 }
